@@ -19,12 +19,24 @@ exports.get = function(req, res){   // Exporting a function called “get” –
             res.end();
         });
     } else {
-        if(path === '/' || path === '/home'){
-            require('./controllers/home').get(req, res);
-        } if(path === '/registration') {
-            require('./controllers/registration').get(req, res);
-        } else {
-            require('./controllers/404').get(req, res);
+        switch(path){
+            case '/':
+            case '/home':
+                require('./controllers/home').get(req, res);
+                break;
+            case '/registration':
+                require('./controllers/registration').get(req, res);
+                break;
+            default:
+                require('./controllers/404').get(req, res);
+                break;
         }
+//        if(path === '/' || path === '/home'){
+//            require('./controllers/home').get(req, res);
+//        } else if(path === '/registration') {
+//            require('./controllers/registration').get(req, res);
+//        } else {
+//            require('./controllers/404').get(req, res);
+//        }
     }
 }
