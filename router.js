@@ -27,6 +27,8 @@ exports.get = function(req, res){   // Exporting a function called “get” –
             case '/registration':
                 require('./controllers/registration').get(req, res);
                 break;
+            case '/map':
+                require('./controllers/registration').get(req, res);
             default:
                 require('./controllers/404').get(req, res);
                 break;
