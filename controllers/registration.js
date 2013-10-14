@@ -1,7 +1,6 @@
 var users_data = require('../model/users-data');
 var messages = require('../model/messages');
 
-//console.log('messages: '+messages.getMsg());
 messages = messages.getMsg();
 
 exports.get = function(req, res){

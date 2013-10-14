@@ -1,7 +1,10 @@
-var template = require('../views/template-main');
+var main_page = require('../views/main_page');
+
+var pageTitle = '404';
+var pageContent = '404 - Does it right page?';
+
 exports.get = function(req, res) {
     res.writeHead(404, {'Content-Type': 'text/html'});
-    res.write(
-        template.build("404 - Page not found","Oh noes, it's a 404","<p>This isn't the page you're looking for...</p>"));
+    res.write(main_page.init(pageTitle, pageContent));
     res.end();
 }

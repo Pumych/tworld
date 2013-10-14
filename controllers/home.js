@@ -1,27 +1,12 @@
-var swig  = require('swig');
-var mainPage_tpl = swig.compileFile(__dirname+'/../views/mainpage_tpl.html');
-var formLogin_tpl = swig.compileFile(__dirname+'/../views/login_tpl.html');
+var main_page = require('../views/main_page');
+var login_block = require('../views/login_block');
 
-var loginOutput =  formLogin_tpl();
-var mainPageOutput = mainPage_tpl({
-    title: 'T-World',
-    pagetitle: '',
-    content: loginOutput
-});
+var pageTitle = 'TWorld';
+var pageContent = login_block.init();
 
 exports.get = function(req, res){
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(mainPageOutput);
+    res.write(main_page.init(pageTitle, pageContent));
     res.end();
 }
 
-
-console.log(formLogin_tpl);
-//    var formLogin = form_login.draw;
-//var template = require('../views/template-main');
-//var form_login = require('../views/form-login');
-//    res.write(
-//        template.build(
-//            "T-World","",formLogin
-//        )
-//    );
